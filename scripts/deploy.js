@@ -2,9 +2,13 @@ const hre = require("hardhat");
 
 async function main() {
   const RiskRegistry = await hre.ethers.getContractFactory("RiskRegistry");
+
   const registry = await RiskRegistry.deploy();
-  await registry.deployed();
-  console.log("RiskRegistry deployed to:", registry.address);
+
+  // ethers v6 style
+  await registry.waitForDeployment();
+
+  console.log("RiskRegistry deployed to:", await registry.getAddress());
 }
 
 main().catch((error) => {
