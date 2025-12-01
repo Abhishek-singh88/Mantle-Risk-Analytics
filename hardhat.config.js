@@ -1,5 +1,5 @@
 require("dotenv").config();
-require("@nomiclabs/hardhat-ethers");
+require("@nomicfoundation/hardhat-toolbox");
 
 const { MANTLE_PRIVATE_KEY, MANTLE_RPC_URL } = process.env;
 
